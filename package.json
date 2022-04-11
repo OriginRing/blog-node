@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node src/app.js",
     "dev": "nodemon src/app.ts",
+    "test": "node dist/app.js",
     "lint": "eslint --cache . --ext .ts,.html",
     "lint:fix": "eslint --cache . --ext .ts,.html --fix",
     "build": "tsc"

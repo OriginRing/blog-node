@@ -4,7 +4,7 @@
 
 ```shell
 npm install
-npm run dev
+npm run start
 ```
 
 ## 前端页面
