@@ -1,5 +1,6 @@
 import express, { Application } from 'express';
 import {gitListRouter} from './router/git'
+import {runArticle} from "./router/article";
 const app: Application = express();
 const PORT = 3000;
 
@@ -12,6 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/list', gitListRouter)
+app.use('/article', runArticle)
 
 app.listen(PORT, () => {
   console.log(`Express with Typescript! http://localhost:${PORT}`);

@@ -1,5 +1,5 @@
 import { parse as parseFileName} from 'path'
-import {readdirSync, readFileSync, writeFileSync} from 'fs'
+import {existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync} from 'fs'
 import {marked, Renderer} from 'marked';
 import slug from 'github-slugger';
 import Prism from 'prismjs';
@@ -43,6 +43,9 @@ class ArticleRender extends Renderer {
 export const markedFunction = (path: string) => {
     const articleList = readdirSync(path)
     const list: article[] = [];
+    if (!existsSync(`${process.cwd()}/json`)) {
+        mkdirSync(`${process.cwd()}/json`)
+    }
     articleList.map(item => {
         const { name } = parseFileName(path + '/' + item)
         const id = md5(name);
